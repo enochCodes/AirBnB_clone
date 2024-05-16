@@ -1,14 +1,11 @@
-#!/usrbin/python3
+#!/usr/bin/python3
 """
     AirBnB console
 """
-import sys
 import cmd
 
 
 class AirBnBConsole(cmd.Cmd):
-    intro = """Wellcome to the AirBnB Console.
-    Type 'help' or '?' to list commands.\n"""
     prompt = '(hbnb) '
 
     def do_help(self, arg):
@@ -21,6 +18,10 @@ class AirBnBConsole(cmd.Cmd):
         print("update")
         print("destroy")
         print("all")
+
+    def do_EOF(self, arg):
+        """EOF exit"""
+        return True
 
     def do_quit(self, arg):
         """Exit the console. """
@@ -54,6 +55,4 @@ class AirBnBConsole(cmd.Cmd):
 
 if __name__ == '__main__':
     console = AirBnBConsole()
-    if not sys.stdin.isatty():
-        sys.exit("Non-interactive mode not supported.")
     console.cmdloop()
