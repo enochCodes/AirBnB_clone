@@ -1,38 +1,59 @@
-#!/usr/bin/python3
+#!/usrbin/python3
+"""
+    AirBnB console
+"""
+import sys
 import cmd
-import base_model
-"""
-    console shall to intract with,
-    the sys console.py
-"""
 
 
-class console(cmd.Cmd):
-    """ command proccessor for the console AirBnB """
+class AirBnBConsole(cmd.Cmd):
+    intro = """Wellcome to the AirBnB Console.
+    Type 'help' or '?' to list commands.\n"""
+    prompt = '(hbnb) '
 
-    prompt = '(hbnb)'
-    file = None
+    def do_help(self, arg):
+        """Print help information."""
+        print("Documented commands (type help <topic>):")
+        print("========================================")
+        print("EOF help quit")
+        print("create")
+        print("show")
+        print("update")
+        print("destroy")
+        print("all")
 
-    def show():
-        """ to show or list """
+    def do_quit(self, arg):
+        """Exit the console. """
+        print("Exiting the AirBnB Console....")
+        return True
 
-    def count():
-        """ to count objects """
-    def create():
-        """ create new object"""
+    def default(self, arg):
+        """Default behavior for unrecognized commands."""
+        print(f"Uknown commnd: {arg}")
 
-    def destroy():
-        """ delete objects """
+    def do_create(self, arg):
+        """Create Objects """
+        print("Create Object...")
 
-    def all():
-        """ List all objects or objects of a specific class """
+    def do_show(self, arg):
+        """Display details of a specific object"""
+        print("Objects List...")
 
-    def update():
-        """ update attributes of an object """
+    def do_destroy(self, arg):
+        """Delete an object"""
+        print("Delete Object...")
 
-    def quit():
-        """ Exit Console """
+    def do_all(self, arg):
+        """List all objects or objects of a specific class"""
+        print("List of classes...")
+
+    def do_update(self, arg):
+        """Update attributes of an object."""
+        print("Update Object....")
 
 
 if __name__ == '__main__':
-    console().cmdloop()
+    console = AirBnBConsole()
+    if not sys.stdin.isatty():
+        sys.exit("Non-interactive mode not supported.")
+    console.cmdloop()
