@@ -8,9 +8,7 @@ from datetime import datetime
 
 
 class BaseModel:
-    """
-        Base Model class
-    """
+    """Base Model class"""
     def __init__(self, *args, **kwargs):
         """ Init atrr """
         if kwargs:
