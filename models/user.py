@@ -10,4 +10,3 @@ class User(BaseModel):
         self.first_name = str(first_name)
         self.last_name = str(last_name)
         self.password = str(password)
-

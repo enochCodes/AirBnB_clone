@@ -16,7 +16,6 @@ class FileStorage:
 
     def new(self, obj):
         self.__objects = append(obj)
-        
 
     def save(self):
         """Serilalizes the Objects the obj with key"""
