@@ -5,8 +5,7 @@
 
 import uuid
 from datetime import datetime
-import storage
-
+import FileStorage as storage
 
 class BaseModel:
     """Base Model class"""

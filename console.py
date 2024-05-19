@@ -2,6 +2,7 @@
 """
     AirBnB console
 """
+
 import cmd
 
 
