@@ -1,6 +1,6 @@
-#!/usr/bin/python3
+# models/__init__.py
+from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 
-from models.base_model import BaseModel  # Commented out the problematic line
-from eangine.file_storage import FileStorage
-
-print(file)
+storage = FileStorage()
+storage.reload()

@@ -3,42 +3,32 @@
     Base Model
 """
 
-import uuid
+# models/base_model.py
+
+from models.engine.file_storage import FileStorage
 from datetime import datetime
-import FileStorage as storage
+import uuid
+
+storage = FileStorage()
 
 class BaseModel:
-    """Base Model class"""
     def __init__(self, *args, **kwargs):
-        """ Init atrr """
         if kwargs:
             for key, value in kwargs.items():
-                if key == 'created_at' or key == 'updated_at':
-                    setattr(self, key, datetime.fromisoformat(value))
-                elif key != '__class__':
+                if key != '__class__':
                     setattr(self, key, value)
-            if 'id' not in kwargs:
-                self.id = str(uuid.uuid4())
-            if 'created_at' not in kwargs:
-                self.created_at = datetime.now()
-            if 'updated_at' not in kwargs:
-                self.updated_at = datetime.now()
+            self.created_at = datetime.strptime(kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
+            self.updated_at = datetime.strptime(kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
-            self.updated_at = datetime.now()
-
-    def __str__(self):
-        """ Str atrr """
-        return "[{}] ({}) {}".format(
-                self.__class__.__name__,
-                self.id, self.__dict__
-                )
+            self.updated_at = self.created_at
+            storage.new(self)
 
     def save(self):
-        """ save """
+        """Update `updated_at` timestamp and save object."""
         self.updated_at = datetime.now()
-        storage.save()
+        storage.save()  # Ensure storage object is used
 
     def to_dict(self):
         """ To dict """
