@@ -6,11 +6,12 @@
 
 import json
 
+
 class FileStorage:
     """Handles storage of all models in the application."""
     __objects = {}
     __file_path = "file.json"
-    
+
     def __init__(self):
         pass
 
@@ -24,7 +25,11 @@ class FileStorage:
     def save(self):
         """Serializes the objects to the JSON file."""
         with open(self.__file_path, 'w') as file:
-            json.dump({k: v.to_dict() for k, v in self.__objects.items()}, file)
+            json.dump(
+                    {k: v.to_dict() for k,
+                        v in self.__objects.items()},
+                    file
+                    )
 
     def reload(self):
         """Deserializes the JSON file to objects."""

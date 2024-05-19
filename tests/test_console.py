@@ -3,6 +3,7 @@ import unittest
 from unittest.mock import patch
 from console import AirBnBConsole
 
+
 class TestAirBnBConsole(unittest.TestCase):
     def setUp(self):
         self.console = AirBnBConsole()
@@ -58,6 +59,7 @@ class TestAirBnBConsole(unittest.TestCase):
     def test_do_update(self, mock_print):
         self.console.onecmd("update")
         mock_print.assert_called_with("Update Object....")
+
 
 if __name__ == '__main__':
     unittest.main()
