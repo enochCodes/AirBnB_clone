@@ -36,7 +36,7 @@ class BaseModel:
         self.updated_at = datetime.now()
         storage = FileStorage()
         storage.save(self)  # Ensure storage object is used
-    
+
     def reload(self):
         from models.engine.file_storage import FileStorage
         storage = FileStorage()

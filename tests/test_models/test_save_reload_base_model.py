@@ -3,6 +3,7 @@ from models import storage
 from models.base_model import BaseModel
 import unittest
 
+
 class TestFileStorage(unittest.TestCase):
     def setUp(self):
         """Set up test methods with the initial conditions needed."""
@@ -15,7 +16,7 @@ class TestFileStorage(unittest.TestCase):
         for obj_id in all_objs.keys():
             obj = all_objs[obj_id]
             print(obj)
-        self.assertIsInstance(all_objs, dict)  # Add assertion for unit test purposes
+            self.assertIsInstance(all_objs, dict)
 
     def test_create_new_object(self):
         """Test creation of a new BaseModel object."""
@@ -25,8 +26,8 @@ class TestFileStorage(unittest.TestCase):
         my_model.my_number = 89
         my_model.save()
         retrieved_objects = storage.all()
-        self.assertIn(my_model.id, retrieved_objects)  # Check if the new object is in storage
+        self.assertIn(my_model.id, retrieved_objects)
         print(my_model)
 
-if __name__ == '__main__':
-    unittest.main()
+    if __name__ == '__main__':
+        unittest.main()
