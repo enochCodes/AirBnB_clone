@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """
-    AirBnB console
+    HBNBCommand console 1.0
 """
 
 import cmd
 
 
-class AirBnBConsole(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
     def do_help(self, arg):
@@ -55,5 +55,4 @@ class AirBnBConsole(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    console = AirBnBConsole()
-    console.cmdloop()
+    HBNBCommand().cmdloop()

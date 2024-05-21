@@ -3,8 +3,9 @@
     file storage json
 """
 # models/file_storage.py
-
+from models.base_model import BaseModel
 import json
+from datetime import datetime
 
 
 class FileStorage:
@@ -32,12 +33,12 @@ class FileStorage:
                     )
 
     def reload(self):
-        """Deserializes the JSON file to objects."""
+        """Deserialize the JSON file to __objects"""
         try:
-            with open(self.__file_path, 'r') as file:
-                self.__objects = json.load(file)
-                for key, value in self.__objects.items():
-                    cls = value["__class__"]
-                    self.__objects[key] = eval(cls)(**value)
+            with open(self.__file_path, 'r', encoding='utf-8') as f:
+                obj_dict = json.load(f)
+            for key, value in obj_dict.items():
+                cls = value["__class__"]
+                self.__objects[key] = eval(cls)(**value)
         except FileNotFoundError:
             pass

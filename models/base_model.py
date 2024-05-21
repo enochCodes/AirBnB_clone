@@ -2,7 +2,6 @@
 """
     Base Model
 """
-
 # models/base_model.py
 
 from models.engine.file_storage import FileStorage
@@ -35,7 +34,13 @@ class BaseModel:
     def save(self):
         """Update `updated_at` timestamp and save object."""
         self.updated_at = datetime.now()
-        storage.save()  # Ensure storage object is used
+        storage = FileStorage()
+        storage.save(self)  # Ensure storage object is used
+    
+    def reload(self):
+        from models.engine.file_storage import FileStorage
+        storage = FileStorage()
+        storage.reload()
 
     def to_dict(self):
         """ To dict """
