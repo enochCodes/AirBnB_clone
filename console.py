@@ -2,6 +2,7 @@
 
 """console.py"""
 import cmd
+from models import base_model
 
 
 class HBNBCommand(cmd.Cmd):
@@ -24,6 +25,32 @@ class HBNBCommand(cmd.Cmd):
         """Fallback for unrecognized commands"""
         print(f"*** Unknown syntax: {line}")
 
+    def do_create(self, line):
+        """Creates a new instance of BaseModel"""
+
+    def do_show(self, line):
+        """
+            Prints the string representation of an instance
+            based on the class name and id
+        """
+    
+    def do_destroy(self, line):
+        """
+            Deletes an instance
+            based on the class name and id
+        """
+
+    def do_all(self, line):
+        """
+            Prints all string
+            representation of all instrances
+        """
+
+    def do_update(self, line):
+        """
+            Updates an instance
+            based on the class name and id
+        """
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

@@ -26,7 +26,8 @@ class TestFileStorage(unittest.TestCase):
         my_model.my_number = 89
         my_model.save()
         retrieved_objects = storage.all()
-        self.assertIn(my_model.id, retrieved_objects)
+        object_key = f'BaseModel.{my_model.id}'
+        self.assertIn(object_key, retrieved_objects)
         print(my_model)
 
     if __name__ == '__main__':
