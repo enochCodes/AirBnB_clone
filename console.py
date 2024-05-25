@@ -4,7 +4,7 @@
 import cmd
 
 
-class AirBnBConsole(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
     """ Simple command processor example """
     prompt = '(hbnb) '
 
@@ -26,4 +26,4 @@ class AirBnBConsole(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    AirBnBConsole().cmdloop()
+    HBNBCommand().cmdloop()
