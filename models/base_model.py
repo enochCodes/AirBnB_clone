@@ -2,6 +2,7 @@
 
 from datetime import datetime
 from models.engine.file_storage import FileStorage
+from models import storage 
 import uuid
 
 class BaseModel:
@@ -28,9 +29,8 @@ class BaseModel:
 
     def save(self):
         """Update `updated_at` timestamp and save object."""
-        # Delayed import
         self.updated_at = datetime.now()
-        storage = FileStorage()
+        storage.new(self)
         storage.save()
 
     def reload(self):
