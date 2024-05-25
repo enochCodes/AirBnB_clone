@@ -22,14 +22,13 @@ class FileStorage:
         """Serializes the objects to the JSON file."""
         with open(self.__file_path, 'w') as file:
             json.dump(
-                    {k: v.to_dict() for k,
-                        v in self.__objects.items()},
-                    file
-                    )
+                {k: v.to_dict() for k, v in self.__objects.items()},
+                file
+            )
 
     def reload(self):
         """Deserialize the JSON file to __objects"""
-        from models.base_model import BaseModel  # Delayed import
+        from models.base_model import BaseModel  # Delayed import to prevent circular import
         try:
             with open(self.__file_path, 'r', encoding='utf-8') as f:
                 obj_dict = json.load(f)
