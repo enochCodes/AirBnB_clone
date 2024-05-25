@@ -1,7 +1,11 @@
-# models/engine/file_storage.py
+#!/usr/bin/python3
+"""
+    models/engine/file_storage.py
+"""
 
 import json
 from datetime import datetime
+
 
 class FileStorage:
     """Handles storage of all models in the application."""
@@ -28,7 +32,7 @@ class FileStorage:
 
     def reload(self):
         """Deserialize the JSON file to __objects"""
-        from models.base_model import BaseModel  # Delayed import to prevent circular import
+        from models.base_model import BaseModel
         try:
             with open(self.__file_path, 'r', encoding='utf-8') as f:
                 obj_dict = json.load(f)

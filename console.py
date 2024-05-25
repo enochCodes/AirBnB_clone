@@ -1,58 +1,29 @@
 #!/usr/bin/python3
-"""
-    HBNBCommand console 1.0
-"""
 
+"""console.py"""
 import cmd
 
 
-class HBNBCommand(cmd.Cmd):
+class AirBnBConsole(cmd.Cmd):
+    """ Simple command processor example """
     prompt = '(hbnb) '
 
-    def do_help(self, arg):
-        """Print help information."""
-        print("Documented commands (type help <topic>):")
-        print("========================================")
-        print("EOF help quit")
-        print("create")
-        print("show")
-        print("update")
-        print("destroy")
-        print("all")
-
-    def do_EOF(self, arg):
-        """EOF exit"""
+    def do_quit(self, line):
+        """Command to exit the program"""
         return True
 
-    def do_quit(self, arg):
-        """Exit the console. """
-        print("Exiting the AirBnB Console....")
+    def do_EOF(self, line):
+        """Command to exit the program"""
         return True
 
-    def default(self, arg):
-        """Default behavior for unrecognized commands."""
-        print(f"Uknown commnd: {arg}")
+    def emptyline(self):
+        """Overrides the default behavior to do nothing on an empty line"""
+        pass
 
-    def do_create(self, arg):
-        """Create Objects """
-        print("Create Object...")
-
-    def do_show(self, arg):
-        """Display details of a specific object"""
-        print("Objects List...")
-
-    def do_destroy(self, arg):
-        """Delete an object"""
-        print("Delete Object...")
-
-    def do_all(self, arg):
-        """List all objects or objects of a specific class"""
-        print("List of classes...")
-
-    def do_update(self, arg):
-        """Update attributes of an object."""
-        print("Update Object....")
+    def default(self, line):
+        """Fallback for unrecognized commands"""
+        print(f"*** Unknown syntax: {line}")
 
 
 if __name__ == '__main__':
-    HBNBCommand.cmdloop()
+    AirBnBConsole().cmdloop()

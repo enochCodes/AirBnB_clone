@@ -22,5 +22,7 @@ class TestBaseModel(unittest.TestCase):
             print("\t{}: ({}) - {}".format(
                 key, type(my_model_json[key]), my_model_json[key]
             ))
-    if __name__ == '__main__':
-        unittest.main()
+
+
+if __name__ == '__main__':
+    unittest.main()
