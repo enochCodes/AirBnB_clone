@@ -1,5 +1,18 @@
 header {
-    background-color: #FF0000;
+    background-color: white;
+    color: white;
     height: 70px;
     width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    height: 30px;
+    width: 100px;
+    background-image: url('../images/image.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 20px;
 }
