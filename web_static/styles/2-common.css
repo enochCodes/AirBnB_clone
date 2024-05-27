@@ -4,10 +4,6 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    font-size: 14px;
-    color: #484848;
-    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-
 }
 
 main {
