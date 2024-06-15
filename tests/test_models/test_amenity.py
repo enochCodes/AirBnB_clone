@@ -5,7 +5,7 @@ from models.base_model import BaseModel
 
 class TestAmenityModel(unittest.TestCase):
     
-    def testAmenity():
+    def testAmenity(self):
         return
     
     

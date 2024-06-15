@@ -5,7 +5,7 @@ from models.base_model import BaseModel
 
 class TestStateModel(unittest.TestCase):
     
-    def testState():
+    def testState(self):
         return
 
 

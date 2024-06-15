@@ -22,7 +22,7 @@ class TestBaseModel(unittest.TestCase):
             print("\t{}: ({}) - {}".format(
                 key, type(my_model_json[key]), my_model_json[key]
             ))
-    def test_to_dict():
+    def test_to_dict(self):
         '''
             test the to_dict
         '''

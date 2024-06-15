@@ -5,7 +5,7 @@ from models.base_model import BaseModel
 
 class TestUserModel(unittest.TestCase):
     
-    def testUser():
+    def testUser(self):
         return
 
 if __name__ == '__main__':

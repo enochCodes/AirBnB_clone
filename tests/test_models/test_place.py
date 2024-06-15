@@ -5,7 +5,7 @@ from models.base_model import BaseModel
 
 class TestPlaceModel(unittest.TestCase):
     
-    def testPlace():
+    def testPlace(self):
         return
 
 

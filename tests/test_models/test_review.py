@@ -5,7 +5,7 @@ from models.base_model import BaseModel
 
 class TestReviewModel(unittest.TestCase):
     
-    def testReview():
+    def testReview(self):
         return
 
 
