@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-
-import os
-import unittest
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+import unittest
+import os
 # tests/test_models/test_engine.py
 
 class test_file_storage(unittest.TestCase):
