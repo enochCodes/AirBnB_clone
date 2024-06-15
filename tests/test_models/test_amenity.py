@@ -5,8 +5,11 @@ from models.base_model import BaseModel
 
 class TestAmenityModel(unittest.TestCase):
     
+    def testAmenity():
+        return
     
     
     
-    if __name__ == '__main__':
-        unittest.main()
+    
+if __name__ == '__main__':
+    unittest.main()
