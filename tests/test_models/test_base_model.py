@@ -23,10 +23,14 @@ class TestBaseModel(unittest.TestCase):
                 key, type(my_model_json[key]), my_model_json[key]
             ))
     def test_to_dict(self):
-        '''
-            test the to_dict
-        '''
-        
+        ''' Test the to_dict method '''
+        my_model = BaseModel()
+        my_model.name = "My_First_Model"
+        my_model.my_number = 89
+        model_dict = my_model.to_dict()
+        self.assertEqual(model_dict['name'], "My_First_Model")
+        self.assertEqual(model_dict['my_number'], 89)
+        self.assertEqual(model_dict['__class__'], "BaseModel")        
 
 
 if __name__ == '__main__':
