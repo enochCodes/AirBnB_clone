@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # models/base_model.py
 
 from datetime import datetime
@@ -39,3 +40,5 @@ class BaseModel:
         obj_dict['created_at'] = self.created_at.isoformat()
         obj_dict['updated_at'] = self.updated_at.isoformat()
         return obj_dict
+    def __str__(self):
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
