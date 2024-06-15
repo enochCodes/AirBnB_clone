@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-
-import unittest
+from models.base_model import *
 from models.base_model import BaseModel
 
+import unittest
 
 class TestBaseModel(unittest.TestCase):
     def test_save(self):
