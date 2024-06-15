@@ -1,12 +1,15 @@
 #!/usr/bin/python3
 from models import storage
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 import unittest
 
 
 class TestFileStorage(unittest.TestCase):
+    
     def setUp(self):
         """Set up test methods with the initial conditions needed."""
+        FileStorage._FileStorage__objects = {}
         storage.reload()
 
     def test_all_method(self):
