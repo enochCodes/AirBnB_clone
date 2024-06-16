@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from models.base_model import BaseModel
 from models import storage
+from models.engine.file_storage import *
 from models.engine.file_storage import FileStorage
 import unittest
 import os
@@ -10,14 +11,13 @@ class TestFileStorage(unittest.TestCase):
 
     def setUp(self):
         """Set up initial conditions for tests."""
-        FileStorage._FileStorage__objects = {}
-        storage.reload()
         self.storage = FileStorage()
         self.obj = BaseModel()
         self.obj.name = "Test Model"
         self.obj.my_number = 100
         self.file_path = FileStorage._FileStorage__file_path
         FileStorage._FileStorage__objects = {}
+        storage.reload()
 
     def tearDown(self):
         """Clean up after each test."""
