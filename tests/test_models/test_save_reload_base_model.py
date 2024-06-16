@@ -1,9 +1,8 @@
 #!/usr/bin/python3
+import unittest
 from models import storage
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
-import unittest
-
 
 class TestFileStorage(unittest.TestCase):
     
@@ -15,15 +14,10 @@ class TestFileStorage(unittest.TestCase):
     def test_all_method(self):
         """Test that all method retrieves stored objects."""
         all_objs = storage.all()
-        print("-- Reloaded objects --")
-        for obj_id in all_objs.keys():
-            obj = all_objs[obj_id]
-            print(obj)
-            self.assertIsInstance(all_objs, dict)
+        self.assertIsInstance(all_objs, dict)
 
     def test_create_new_object(self):
         """Test creation of a new BaseModel object."""
-        print("-- Create a new object --")
         my_model = BaseModel()
         my_model.name = "My_First_Model"
         my_model.my_number = 89
@@ -31,7 +25,6 @@ class TestFileStorage(unittest.TestCase):
         retrieved_objects = storage.all()
         object_key = f'BaseModel.{my_model.id}'
         self.assertIn(object_key, retrieved_objects)
-        print(my_model)
 
-    if __name__ == '__main__':
-        unittest.main()
+if __name__ == "__main__":
+    unittest.main()
