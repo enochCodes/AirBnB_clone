@@ -30,7 +30,9 @@ class FileStorage:
             with open(self.__file_path, 'r', encoding='utf-8') as file:
                 obj_dict = json.load(file)
                 for key, value in obj_dict.items():
-                    cls = value.pop("__class__", None)
-                    self.__objects[key] = globals()[cls](**value)
+                    cls_name = value.pop("__class__", None)
+                    if cls_name and cls_name in globals():
+                        cls = globals()[cls_name]
+                        self.__objects[key] = cls(**value)
         except FileNotFoundError:
             pass
