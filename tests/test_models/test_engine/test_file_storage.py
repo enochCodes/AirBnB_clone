@@ -51,7 +51,7 @@ class TestFileStorage(unittest.TestCase):
         object_key = f'BaseModel.{my_model.id}'
         self.assertIn(object_key, retrieved_objects)
         
-    def test_Save(self):
+    def test_save(self):
         print("-- Create a new object --")
         my_model = BaseModel()
         my_model.name = "My_First_Model"
@@ -59,7 +59,7 @@ class TestFileStorage(unittest.TestCase):
         my_model.save()
         print(my_model)
     
-    def test_relod(self):
+    def test_reload(self):
         all_objs = storage.all()
         print("-- Reloaded objects --")
         for obj_id in all_objs.keys():
