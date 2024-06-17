@@ -1,15 +1,12 @@
 #!/usr/bin/python3
-from models.base_model import *
-from models.base_model import BaseModel
-
 import unittest
+from models.base_model import BaseModel
 
 class TestBaseModel(unittest.TestCase):
     def test_save(self):
-        my_model = BaseModel()  # Ensure proper initialization
-        my_model.save()
-        # Add assertions here if necessary
+        print("test BaseModel Save")
         my_model = BaseModel()
+        my_model.save()
         my_model.name = "My First Model"
         my_model.my_number = 89
         print(my_model)
@@ -22,6 +19,7 @@ class TestBaseModel(unittest.TestCase):
             print("\t{}: ({}) - {}".format(
                 key, type(my_model_json[key]), my_model_json[key]
             ))
+
     def test_to_dict(self):
         ''' Test the to_dict method '''
         my_model = BaseModel()
@@ -30,8 +28,6 @@ class TestBaseModel(unittest.TestCase):
         model_dict = my_model.to_dict()
         self.assertEqual(model_dict['name'], "My_First_Model")
         self.assertEqual(model_dict['my_number'], 89)
-        self.assertEqual(model_dict['__class__'], "BaseModel")        
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -1,9 +1,9 @@
 #!/usr/bin/python3import unittest
+import unittest
 import os
 import json
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
-import unittest
 
 class TestFileStorage(unittest.TestCase):
     
@@ -42,7 +42,6 @@ class TestFileStorage(unittest.TestCase):
 
     def test_reload(self):
         """Test reloading objects from a file."""
-        self.storage.save()
         self.storage.reload()
         all_objs = self.storage.all()
         self.assertIn(f"BaseModel.{self.obj.id}", all_objs)
